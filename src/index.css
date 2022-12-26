@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;0,900;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&family=Ubuntu+Mono:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background-color: rgb(18, 27, 34);
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 20px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #121b22;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f44d5a;
+  border-radius: 100vh;
+  border: 3px solid #121b22;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #121b22;
+}
+
+.glass {
+  box-shadow: 0 10px 30px -10 rgba(30, 24, 34, 0.7);
+  background-color: rgba(18, 27, 34, 0.9);
+  backdrop-filter: blur(10px);
+}
