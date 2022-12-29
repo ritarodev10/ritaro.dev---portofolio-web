@@ -7,7 +7,6 @@ import useEntranceAnimation from "../hooks/useEntranceAnimation";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import FooterMobile from "./FooterMobile";
 
 const Layout = ({ children }) => {
   const { animateDone, entranceDuration } = useEntranceAnimation();
@@ -36,10 +35,9 @@ const Layout = ({ children }) => {
           } flex-container container px-6 overflow-x-hidden m-auto  flex flex-col justify-start items-center gap-[15rem]`}
         >
           {children}
-          <Footer scrollPosition={scrollPosition} />
         </div>
       </div>
-      <FooterMobile scrollPosition={scrollPosition} />
+      <Footer scrollPosition={scrollPosition} />
       <Email animateDone={animateDone} />
       <IconNav animateDone={animateDone} />
       <BottomBar scrollPosition={scrollPosition} />

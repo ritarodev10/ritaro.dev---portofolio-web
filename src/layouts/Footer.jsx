@@ -2,20 +2,23 @@ import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 
-const Footer = ({ scrollPosition }) => {
+const FooterMobile = ({ scrollPosition }) => {
+  const [scroll, setScroll] = useState(0);
+
   useEffect(() => {
     const handleScroll = () => {};
+    setScroll(document.body.scrollHeight - window.innerHeight);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [document.body.scrollHeight]);
 
   return (
     <footer
       id="bottom"
       className={`${
-        scrollPosition > 2000 ? "md:block" : ""
-      } [transition:opacity_100ms_1000ms] hidden  absolute bottom-8 w-full h-auto`}
+        (scrollPosition / scroll) * 100 > 98.5 ? "opacity-100" : "opacity-0"
+      } [transition:opacity_100ms] fixed  bottom-2 w-full h-auto`}
     >
       <div id="footer" className="text-slate-300 h-[120px] flex flex-col gap-6">
         <div className="visible md:invisible flex gap-8 justify-center">
@@ -50,11 +53,7 @@ const Footer = ({ scrollPosition }) => {
             />
           ))}
         </div>
-        <a
-          href="https://github.com/ritarodev10/ritaro.dev---portofolio-web"
-          target="_blank"
-          className="hover:text-orange-neon font-roboto-mono flex gap-3 justify-center items-center text-sm cursor-pointer transition duration-300"
-        >
+        <a className="text-orange-neon hover:text-red-neon font-roboto-mono flex gap-3 justify-center items-center text-sm cursor-pointer transition duration-300">
           <Icon icon="mingcute:github-fill" />
           <h3>Designed & Built by Riza Rohman</h3>
         </a>
@@ -63,4 +62,4 @@ const Footer = ({ scrollPosition }) => {
   );
 };
 
-export default Footer;
+export default FooterMobile;
