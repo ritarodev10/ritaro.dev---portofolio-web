@@ -1,4 +1,5 @@
-import { About, Hero } from "./components/sections";
+import { useEffect, useState } from "react";
+import { About, Contact, Experience, Hero, Work } from "./components/sections";
 import Layout from "./layouts/Layout";
 
 function App() {
@@ -6,6 +7,9 @@ function App() {
     <Layout>
       <Hero />
       <About />
+      <Experience />
+      <Work />
+      <Contact />
     </Layout>
   );
 }

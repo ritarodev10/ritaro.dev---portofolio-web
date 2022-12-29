@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { heroDesc, loaderDelay } from "../../config";
 import {
   useEntranceAnimation,
-  useMobileView,
   useMount,
   useParallax,
   useTypingEffect,
@@ -15,7 +14,6 @@ const Hero = () => {
   const { animateDone } = useEntranceAnimation();
   const { typedText, typingDone } = useTypingEffect(heroDesc);
   const [isMounted] = useMount();
-  const isMobile = useMobileView();
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -28,32 +26,40 @@ const Hero = () => {
     };
   }, []);
 
+  const getInTouch = () => {
+    const section = document.getElementById("contact");
+    const sectionY = section.offsetTop;
+    window.scrollTo(0, sectionY - 100);
+  };
+
   const styling = {
-    section: `hidden md:flex flex-col pt-24 md:p-0 justify-center relative w-full h-auto`,
+    section: `flex flex-col pt-24 md:p-0 justify-center relative w-full h-auto`,
     contentWrapper: `${
       scrollPosition > 300 && animateDone
-        ? "top-24 2xl:top-48"
-        : "top-32 2xl:top-60"
-    } absolute px-6 z-20 left-[6rem] 2xl:left-[8rem] transition-all duration-[2000ms] ease-in-out`,
+        ? ""
+        : "xl:translate-y-8 2xl:translate-y-12"
+    } xl:py-24 2xl:py-48 xl:px-[6rem] 2xl:px-[8rem] z-20 transition-all duration-[2000ms] ease-in-out`,
+    imageWrapper: `md:absolute xl:top-10 2xl:top-20 xl:right-[4rem] 2xl:right-[7rem] -translate-x-[10rem] translate-y-[2rem] md:translate-x-0 md:translate-y-0`,
     one: `font-roboto-mono text-red-neon`,
-    two: `font-noto font-bold text-6xl text-orange-neon -ml-1 mt-3 mb-2`,
-    three: `font-noto font-semibold text-[2.1rem] text-orange-neon`,
-    four: `font-roboto-mono text-white text-base leading-loose md:w-[28.1rem] mt-6 mb-9 after:content-['|'] after:text-orange-neonafter:w-1 after:h-1 after:bg-orange-neon after:animate-blink`,
+    two: `font-noto font-bold text-[3.2rem] leading-none md:text-6xl text-orange-neon -ml-1 mt-3 mb-2`,
+    three: `font-noto font-semibold text-[1.7rem] md:text-[2.1rem] text-slate-300`,
+    four: `font-roboto-mono text-slate-400 text-base leading-loose h-[240px] md:h-[192px]  md:w-[28.1rem] my-6 md:mb-10 after:content-['|'] after:text-orange-neon after:w-1 after:h-1 after:bg-orange-neon after:animate-blink`,
     five: `font-roboto-mono px-6 py-3 bg-transparent border-2 border-orange-neon hover:border-red-neon rounded-lg text-orange-neon hover:text-red-neon transition-all duration-300`,
-    six: `${
+    six: ` block md:hidden font-roboto-mono px-6 py-3 bg-opacity-50 border-2 border-orange-neon bg-orange-neon hover:border-red-neon rounded-lg text-dark font-semibold hover:text-red-neon transition-all duration-300`,
+    seven: `${
       isMounted ? "opacity-100 blur-0" : "opacity-0 blur-3xl"
-    } [transition:opacity_2000ms_1000ms,blur_2000ms_1000ms] z-0 absolute bottom-0 xl:w-auto xl:h-[40rem] 2xl:h-[50rem] xl:top-10 2xl:top-20 xl:right-[4rem] 2xl:right-[7rem]`,
+    } [transition:opacity_2000ms_1000ms,blur_2000ms_1000ms] z-0 bottom-0 max-w-[160%] xl:w-auto xl:h-[40rem] 2xl:h-[50rem]`,
     fadeUp: `${
       isMounted ? "opacity-100" : "opacity-0 translate-y-[20px]"
     } transition-all duration-300 ease-smooth`,
     showUp: `${
       typingDone ? "opacity-100 scale-100" : "opacity-0 scale-90"
-    } [transition:opacity_200ms_200ms,transform_200ms_200ms,color_200ms,border_200ms] ease-smooth`,
+    } [transition:opacity_200ms_200ms,transform_200ms_200ms,color_200ms,border_200ms] ease-smooth flex gap-4`,
   };
 
   const contents = {
     one: <h3 className={styling.one}>Hi, my name is</h3>,
-    two: <h1 className={`big-heading ${styling.two}`}>Riza Rohman.</h1>,
+    two: <h1 className={`big-heading ${styling.two}`}>Riza Rohman</h1>,
     three: (
       <h2 className={`sub-heading ${styling.three}`}>
         I build things for the web.
@@ -61,20 +67,24 @@ const Hero = () => {
     ),
     four: <p className={styling.four}>{typedText}</p>,
     five: (
-      <a
-        className={`to-contact ${styling.five}`}
-        href="/"
-        //   target="_blank"
-        //   rel="noreferrer"
-      >
+      <button className={`to-contact ${styling.five}`} onClick={getInTouch}>
         Get in touch!
-      </a>
+      </button>
     ),
     six: (
+      <a
+        className={`to-contact ${styling.six}`}
+        href="/Resume.pdf"
+        target="_blank"
+      >
+        Resume
+      </a>
+    ),
+    seven: (
       <img
         ref={imageRef}
         src="./assets/header-image.svg"
-        className={styling.six}
+        className={styling.seven}
       />
     ),
   };
@@ -83,7 +93,7 @@ const Hero = () => {
 
   return (
     <>
-      <section ref={layerRef} className={`${styling.section}`}>
+      <section id="top" ref={layerRef} className={`${styling.section}`}>
         <div className={`content-wrapper ${styling.contentWrapper}`}>
           {items.map((item, i) => (
             <div
@@ -95,10 +105,12 @@ const Hero = () => {
             </div>
           ))}
           <div className={styling.showUp} style={{ transitionDelay: `200ms` }}>
-            {contents.five}
+            {contents.five} {contents.six}
           </div>
         </div>
-        <div className="image-wrapper relative h-screen">{contents.six}</div>
+        <div className={`image-wrapper ${styling.imageWrapper}`}>
+          {contents.seven}
+        </div>
       </section>
     </>
   );

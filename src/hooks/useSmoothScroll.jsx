@@ -61,7 +61,7 @@ const useSmoothScroll = (delay = 5000) => {
     const difference = data.current - data.rounded;
     const acceleration = difference / windowSize.width;
     const velocity = +acceleration;
-    const skew = velocity * 4;
+    const skew = velocity * 1;
 
     //Assign skew and smooth scrolling to the scroll container
     scrollContainer.current.style.transform = `translate3d(0, -${data.rounded}px, 0) skewY(${skew}deg)`;

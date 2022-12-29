@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import React from "react";
 import useMount from "../hooks/useMount";
 import Button from "./Button";
@@ -13,17 +14,38 @@ const IconNav = ({ animateDone }) => {
     >
       <div className="flex flex-col gap-7">
         {[
-          { id: 1, icon: "ri:github-line", path: "" },
-          { id: 2, icon: "mingcute:linkedin-line", path: "" },
-          { id: 3, icon: "carbon:logo-instagram", path: "" },
-          { id: 4, icon: "mingcute:whatsapp-line", path: "" },
+          {
+            id: 1,
+            icon: "ri:github-line",
+            url: "https://github.com/ritarodev10",
+          },
+          {
+            id: 2,
+            icon: "mingcute:linkedin-line",
+            url: "https://www.linkedin.com/in/riza-rohman/",
+          },
+          {
+            id: 3,
+            icon: "ph:codepen-logo",
+            url: "https://codepen.io/riza-rohman",
+          },
+          {
+            id: 4,
+            icon: "mingcute:whatsapp-line",
+            url: "https://wa.me/6287771884455",
+          },
         ].map((item) => (
-          <Button
+          <a
             key={item.id}
-            icon={item.icon}
-            iconClass="text-2xl hover:text-red-neon transition-all duration-200 hover:-translate-y-1"
-            btnClass={`${animateDone ? "pointer-events-auto" : ""}`}
-          />
+            className={`${animateDone ? "pointer-events-auto" : ""}`}
+            href={item.url}
+            target="_blank"
+          >
+            <Icon
+              icon={item.icon}
+              className="text-2xl hover:text-red-neon transition-all duration-200 hover:-translate-y-1"
+            />
+          </a>
         ))}
       </div>
     </div>

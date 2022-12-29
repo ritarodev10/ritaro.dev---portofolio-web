@@ -4,6 +4,7 @@ import { forwardRef } from "react";
 const Button = forwardRef(
   (
     {
+      id,
       children,
       icon,
       btnClass,
@@ -17,6 +18,7 @@ const Button = forwardRef(
   ) => {
     return (
       <button
+        id={id}
         ref={ref}
         className={btnClass}
         onClick={onClick}

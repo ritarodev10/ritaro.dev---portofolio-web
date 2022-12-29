@@ -14,14 +14,14 @@ const BottomBar = ({ scrollPosition }) => {
 
   return (
     <div
-      className="fixed-bottom-bar h-2 bg-orange-neon animate-pulse rounded-full"
+      className="fixed-bottom-bar h-2 bg-orange-neon animate-pulse rounded-full z-50"
       style={{
         position: "fixed",
         bottom: 0,
         left: -8,
         width: `${(scrollPosition / pageHeight) * 100 + 0.5}%`,
       }}
-    ></div>
+    />
   );
 };
 
