@@ -58,7 +58,7 @@ const FooterMobile = ({ scrollPosition }) => {
           target="_blank"
           className="text-orange-neon hover:text-red-neon font-roboto-mono flex gap-3 justify-center items-center text-sm cursor-pointer transition duration-300"
         >
-          <Icon icon="mingcute:github-fill" />
+          <Icon icon="fe:fork" />
           <h3>Designed & Built by Riza Rohman</h3>
         </a>
       </div>
