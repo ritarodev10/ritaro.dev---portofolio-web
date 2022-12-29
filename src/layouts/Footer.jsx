@@ -53,7 +53,11 @@ const FooterMobile = ({ scrollPosition }) => {
             />
           ))}
         </div>
-        <a className="text-orange-neon hover:text-red-neon font-roboto-mono flex gap-3 justify-center items-center text-sm cursor-pointer transition duration-300">
+        <a
+          href="https://github.com/ritarodev10/ritaro.dev---portofolio-web"
+          target="_blank"
+          className="text-orange-neon hover:text-red-neon font-roboto-mono flex gap-3 justify-center items-center text-sm cursor-pointer transition duration-300"
+        >
           <Icon icon="mingcute:github-fill" />
           <h3>Designed & Built by Riza Rohman</h3>
         </a>
