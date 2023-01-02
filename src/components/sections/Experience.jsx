@@ -14,7 +14,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="relative max-w-[480] md:max-w-[768px] xl:max-w-[900] flex flex-col gap-8"
+      className="relative max-w-[480] md:max-w-[768px] lg:max-w-[900] flex flex-col gap-8"
     >
       <div className="w-full overflow-hidden h-8 md:w-[408px]">
         <h2 className="title relative font-noto font-semibold text-2xl md:text-[1.65rem] text-slate-300 before:content-['02._'] | before:font-roboto-mono before:font-medium before:text-base md:before:text-xl before:text-orange-neon | after:content-['----------------------------------'] after:-tracking-[0.1em] after:ml-3 after:font-extralight after:text-slate-500 ">

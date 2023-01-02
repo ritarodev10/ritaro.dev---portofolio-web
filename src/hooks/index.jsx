@@ -5,4 +5,5 @@ export { default as useSmoothScroll } from "./useSmoothScroll";
 export { default as useTypingEffect } from "./useTypingEffect";
 export { default as useMount } from "./useMount";
 export { default as useComponentVisible } from "./useComponentVisible";
+export { default as useDeviceType } from "./useDeviceType";
 // export {default as x} from './';

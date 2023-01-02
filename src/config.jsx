@@ -41,3 +41,26 @@ export const navConfig = [
     sectionId: "contact",
   },
 ];
+
+export const iconNavConfig = [
+  {
+    id: 1,
+    icon: "ri:github-line",
+    url: "https://github.com/ritarodev10",
+  },
+  {
+    id: 2,
+    icon: "mingcute:linkedin-line",
+    url: "https://www.linkedin.com/in/riza-rohman/",
+  },
+  {
+    id: 3,
+    icon: "ph:codepen-logo",
+    url: "https://codepen.io/riza-rohman",
+  },
+  {
+    id: 4,
+    icon: "mingcute:whatsapp-line",
+    url: "https://wa.me/6287771884455",
+  },
+];

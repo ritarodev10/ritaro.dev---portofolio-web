@@ -1,13 +1,14 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
+import { iconNavConfig } from "../config";
 
 const FooterMobile = ({ scrollPosition }) => {
-  const [scroll, setScroll] = useState(0);
+  const [pageHeight, setPageHeight] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {};
-    setScroll(document.body.scrollHeight - window.innerHeight);
+    setPageHeight(document.body.scrollHeight - window.innerHeight);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -17,33 +18,14 @@ const FooterMobile = ({ scrollPosition }) => {
     <footer
       id="bottom"
       className={`${
-        (scrollPosition / scroll) * 100 > 98.5 ? "opacity-100" : "opacity-0"
-      } [transition:opacity_100ms] fixed  bottom-2 w-full h-auto`}
+        (scrollPosition / pageHeight) * 100 > 98.5
+          ? "opacity-100"
+          : "opacity-0 pointer-events-none"
+      } [transition:opacity_100ms] fixed bottom-2 w-full h-auto flex flex-col items-center`}
     >
       <div id="footer" className="text-slate-300 h-[120px] flex flex-col gap-6">
         <div className="visible md:invisible flex gap-8 justify-center">
-          {[
-            {
-              id: 1,
-              icon: "ri:github-line",
-              url: "https://github.com/ritarodev10",
-            },
-            {
-              id: 2,
-              icon: "mingcute:linkedin-line",
-              url: "https://www.linkedin.com/in/riza-rohman/",
-            },
-            {
-              id: 3,
-              icon: "ph:codepen-logo",
-              url: "https://codepen.io/riza-rohman",
-            },
-            {
-              id: 4,
-              icon: "mingcute:whatsapp-line",
-              url: "https://wa.me/6287771884455",
-            },
-          ].map((item) => (
+          {iconNavConfig.map((item) => (
             <Button
               key={item.id}
               icon={item.icon}

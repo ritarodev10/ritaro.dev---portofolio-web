@@ -31,7 +31,7 @@ const Email = ({ animateDone }) => {
       <div
         className={`${
           isMounted ? "opacity-100" : "opacity-0"
-        } [transition:opacity_500ms_ease-out_5s] invisible md:visible flex flex-col gap-8 w-5 items-center fixed bottom-0 font-roboto-mono text-xs tracking-widest right-[2rem] z-50 text-orange-neon after:w-[1px] after:block after:h-24 after:bg-orange-neon pointer-events-none`}
+        } [transition:opacity_500ms_ease-out_5s] invisible lg:visible flex flex-col gap-8 w-5 items-center fixed bottom-0 font-roboto-mono text-xs tracking-widest right-[2rem] z-50 text-orange-neon after:w-[1px] after:block after:h-24 after:bg-orange-neon pointer-events-none`}
       >
         <div className="relative">
           <span

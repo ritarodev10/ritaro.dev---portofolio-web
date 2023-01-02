@@ -14,7 +14,7 @@ const About = ({ aboutMe }) => {
   return (
     <section
       id="about-me"
-      className="relative max-w-[480] md:max-w-[768px] xl:max-w-[900] flex flex-col gap-8"
+      className="relative max-w-[480] md:max-w-[768px] lg:max-w-[900] flex flex-col gap-8"
     >
       <div className="w-full overflow-hidden h-8 md:w-[408px]">
         <h2 className="title relative font-noto font-semibold text-2xl md:text-[1.65rem] text-slate-300 before:content-['01._'] | before:font-roboto-mono before:font-medium before:text-base md:before:text-xl before:text-orange-neon | after:content-['----------------------------------'] after:-tracking-[0.1em] after:ml-3 after:font-extralight after:text-slate-500 ">
@@ -62,7 +62,14 @@ const About = ({ aboutMe }) => {
           <div className="skills"></div>
         </div>
         <div className="my-image mt-12 md:mt-0">
-          <div className="w-[300px] h-[300px] bg-slate-300 rounded"></div>
+          <div className="relative w-[310px] h-[310px] | before:w-full before:h-full before:absolute before:border-2 before:rounded before:border-orange-neon before:hover:translate-x-4 before:hover:translate-y-4 before:translate-x-5 before:translate-y-5 before:transition-all before:duration-300">
+            <div className="bg-slate-300 rounded image-container absolute hover:opacity-100 overflow-hidden w-full h-full">
+              <img src="/assets/my photo.jpg" />
+            </div>
+            <div className="bg-slate-300 rounded image-container-main overflow-hidden w-full h-full">
+              <img src="/assets/my photo.jpg" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
+// control the visibility of a component especially when clicking outside of the component
 const useComponentVisible = ({ initialIsVisible }) => {
   const [isComponentVisible, setIsComponentVisible] =
     useState(initialIsVisible);

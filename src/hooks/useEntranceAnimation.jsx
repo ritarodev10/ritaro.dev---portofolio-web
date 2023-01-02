@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 
+// manually determine how long the entrance animation will takes
 const useEntranceAnimation = (initialDurration = 6000) => {
   const [animateDone, setAnimateDone] = useState(false);
-  const [entranceDuration] = useState(initialDurration);
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setAnimateDone(true);
-    }, entranceDuration);
+    }, initialDurration);
 
     return () => {
       clearTimeout(timeoutId);
     };
   }, []);
 
-  return { animateDone, entranceDuration };
+  return animateDone;
 };
 
 export default useEntranceAnimation;

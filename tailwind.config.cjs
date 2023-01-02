@@ -3,8 +3,12 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      boxShadow: {
+        side: "-10px 0px 30px -15px rgba(2, 12, 27, 0.7)",
+      },
       colors: {
         dark: "#121B22",
+        semidark: "#1C2A35",
         "orange-neon": "#F1BF68",
         "red-neon": "#F44D5A",
       },
@@ -29,6 +33,9 @@ module.exports = {
           "0%,100%": { opacity: 0 },
           "50%": { opacity: 1 },
         },
+        "menu-top": {},
+        "menu-mid": {},
+        "menu-bottom": {},
       },
     },
   },
